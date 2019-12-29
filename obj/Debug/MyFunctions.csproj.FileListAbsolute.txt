@@ -1,0 +1,13 @@
+C:\Users\nelsonr\Source\Repos\Projects01\MyFunctions\MyFunctions\obj\Debug\MyFunctions.csproj.CoreCompileInputs.cache
+C:\Users\nelsonr\Source\Repos\Projects01\MyFunctions\MyFunctions\bin\Debug\MyFunctions.dll
+C:\Users\nelsonr\Source\Repos\Projects01\MyFunctions\MyFunctions\bin\Debug\MyFunctions.pdb
+C:\Users\nelsonr\Source\Repos\Projects01\MyFunctions\MyFunctions\bin\Debug\System.Data.SQLite.dll
+C:\Users\nelsonr\Source\Repos\Projects01\MyFunctions\MyFunctions\obj\Debug\MyFunctions.dll
+C:\Users\nelsonr\Source\Repos\Projects01\MyFunctions\MyFunctions\obj\Debug\MyFunctions.pdb
+C:\Users\nelsonr\Source\Repos\Projects01\MyFunctions\MyFunctions\obj\Debug\MyFunctions.csprojResolveAssemblyReference.cache
+C:\Users\bs000f5mu\source\mysource\Projects01\MyFunctions\MyFunctions\bin\Debug\MyFunctions.dll
+C:\Users\bs000f5mu\source\mysource\Projects01\MyFunctions\MyFunctions\bin\Debug\MyFunctions.pdb
+C:\Users\bs000f5mu\source\mysource\Projects01\MyFunctions\MyFunctions\bin\Debug\System.Data.SQLite.dll
+C:\Users\bs000f5mu\source\mysource\Projects01\MyFunctions\MyFunctions\obj\Debug\MyFunctions.csproj.CoreCompileInputs.cache
+C:\Users\bs000f5mu\source\mysource\Projects01\MyFunctions\MyFunctions\obj\Debug\MyFunctions.dll
+C:\Users\bs000f5mu\source\mysource\Projects01\MyFunctions\MyFunctions\obj\Debug\MyFunctions.pdb
