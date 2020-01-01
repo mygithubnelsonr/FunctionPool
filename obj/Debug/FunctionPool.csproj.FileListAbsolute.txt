@@ -40,3 +40,4 @@ A:\Source\Repos\11_Public\FunctionPool\bin\Debug\System.Data.SQLite.dll
 A:\Source\Repos\11_Public\FunctionPool\obj\Debug\FunctionPool.csproj.CopyComplete
 A:\Source\Repos\11_Public\FunctionPool\obj\Debug\FunctionPool.dll
 A:\Source\Repos\11_Public\FunctionPool\obj\Debug\FunctionPool.pdb
+A:\Source\Repos\11_Public\FunctionPool\obj\Debug\FunctionPool.csprojAssemblyReference.cache

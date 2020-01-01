@@ -118,6 +118,8 @@ namespace NRSoft.FunctionPool
 
         public static List<FileInfo> GetFileinfos(string path, bool recursiv = true)
         {
+            fileInfos = new List<FileInfo>();
+
             if (File.Exists(path))
             {
                 // This path is a file
@@ -253,17 +255,17 @@ namespace NRSoft.FunctionPool
         /// <param name="recursive">Gibt an, ob auch in den Unterordnern gesucht werden soll</param>
         /// <returns>Gibt ein ReadOnlyCollection vom Typ FileInfo zurück, die die 
         /// gefundenen Dateien repräsentiert</returns>
-        public static ReadOnlyCollection<FileInfo> FindFiles(string startDirectory, string filePattern, bool recursive)
-        {
-            // Basis-Auflistung erzeugen
-            List<FileInfo> fileList = new List<FileInfo>();
+        //public static ReadOnlyCollection<FileInfo> FindFiles(string startDirectory, string filePattern, bool recursive)
+        //{
+        //    // Basis-Auflistung erzeugen
+        //    List<FileInfo> fileList = new List<FileInfo>();
 
-            // Die rekursive private Methode aufrufen
-            fileList = Fileinfos(new DirectoryInfo(startDirectory), filePattern, recursive);
+        //    // Die rekursive private Methode aufrufen
+        //    fileList = Fileinfos(new DirectoryInfo(startDirectory), filePattern, recursive);
 
-            // Ergebnis-Collection zurückgeben
-            return new ReadOnlyCollection<FileInfo>(fileList);
-        }
+        //    // Ergebnis-Collection zurückgeben
+        //    return new ReadOnlyCollection<FileInfo>(fileList);
+        //}
 
         /// <summary>
         /// Sucht alle Dateien, die dem angegebenen Muster entsprechen
