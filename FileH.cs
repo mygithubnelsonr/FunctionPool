@@ -7,6 +7,9 @@ using System.Linq;
 
 namespace NRSoft.FunctionPool
 {
+    /// <summary>
+    /// Klasse mit statischen Utility-Methoden für das Dateisystem
+    /// </summary>
     public class FileSystemUtils
     {
         #region Fields
@@ -157,6 +160,26 @@ namespace NRSoft.FunctionPool
             }
             return files;
         }
+
+        //public List<FileInfo> GetFileinfos(string path, bool recursiv = true)
+        //{
+        //    if (File.Exists(path))
+        //    {
+        //        // This path is a file
+        //        ProcessFile(path);
+        //    }
+        //    else if (Directory.Exists(path))
+        //    {
+        //        // This path is a directory
+        //        ProcessDirectory(path, recursiv);
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("{0} is not a valid file or directory.", path);
+        //    }
+
+        //    return fileInfos;
+        //}
 
         //public ArrayList GetFiles(string path, string filter)
         //{

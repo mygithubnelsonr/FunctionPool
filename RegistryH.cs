@@ -56,14 +56,21 @@ namespace NRSoft.FunctionPool
         #region Methods
         public bool SaveSetting(string subkey, string keyname, string keyDefault = "")
         {
-            RegistryKey keySet;
-            RegistryKey rkCurrentUser = Registry.CurrentUser;
+            try
+            {
+                RegistryKey keySet;
+                RegistryKey rkCurrentUser = Registry.CurrentUser;
 
-            string sRegKey = String.Format(@"Software\{0}\{1}\{2}", CompanyName, ProductName, subkey);
-            keySet = rkCurrentUser.CreateSubKey(sRegKey);
-            keySet.SetValue(keyname, keyDefault, RegistryValueKind.String);
+                string sRegKey = String.Format(@"Software\{0}\{1}\{2}", CompanyName, ProductName, subkey);
+                keySet = rkCurrentUser.CreateSubKey(sRegKey);
+                keySet.SetValue(keyname, keyDefault, RegistryValueKind.String);
 
-            if (keySet != null) return false; else return true;
+                if (keySet != null) return false; else return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public string GetSetting(string subkey, string keyname, string keyDefault)
