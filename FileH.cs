@@ -119,7 +119,7 @@ namespace NRSoft.FunctionPool
 
         }
 
-        public static List<FileInfo> GetFileinfos(string path, bool recursiv = true)
+        public static List<FileInfo> GetFileinfos(string path, bool recursiv = false)
         {
             fileInfos = new List<FileInfo>();
 
@@ -159,6 +159,19 @@ namespace NRSoft.FunctionPool
                 if (n == amount) break;
             }
             return files;
+        }
+
+        public static FileInfo GetFileinfo(string fullpath, bool recursiv = false)
+        {
+            if (File.Exists(fullpath))
+            {
+                return new FileInfo(fullpath);
+            }
+            else
+            {
+                Console.WriteLine("{0} is not a valid file or directory.", fullpath);
+                return null;
+            }
         }
 
         //public List<FileInfo> GetFileinfos(string path, bool recursiv = true)
@@ -417,6 +430,69 @@ namespace NRSoft.FunctionPool
 
             return fileList;
         }
+
+        public static List<FileInfo> Fileinfos(List<string> files, string filePattern)
+        {
+            List<FileInfo> fileList = new List<FileInfo>();
+
+            if (filePattern != null && filePattern.Length > 0)
+            {
+                // Das Dateimuster splitten
+                string[] filePatterns = filePattern.Split(';');
+
+                // Alle Dateimuster durchgehen und in dem übergebenen Verzeichnis suchen
+                foreach (string partPattern in filePatterns)
+                {
+                    try
+                    {
+                        foreach (string file in files)
+                        {
+                            FileInfo fileInfo = new FileInfo(file);
+                            fileList.Add(fileInfo);
+                        }
+                    }
+                    catch (UnauthorizedAccessException)
+                    {
+                        // Der Zugriff wurde verweigert: Ignorieren
+                    }
+                }
+            }
+            else
+            {
+                //try
+                //{
+                //    // Kein Suchmuster angegeben: Alle Dateien durchgehen 
+                //    foreach (FileInfo fileInfo in directory.GetFiles())
+                //    {
+                //        fileList.Add(fileInfo);
+                //    }
+                //}
+                //catch (UnauthorizedAccessException)
+                //{
+                //    // Der Zugriff wurde verweigert: Ignorieren
+                //}
+            }
+
+            //if (recursive)
+            //{
+            //    // Wenn rekursiv gesucht werden soll:
+            //    // Die Methode für alle Unterordner aufrufen
+            //    try
+            //    {
+            //        foreach (DirectoryInfo subDirectory in directory.GetDirectories())
+            //        {
+            //            Fileinfos(subDirectory, filePattern, recursive);
+            //        }
+            //    }
+            //    catch (UnauthorizedAccessException)
+            //    {
+            //        // Der Zugriff wurde verweigert: Ignorieren
+            //    }
+            //}
+
+            return fileList;
+        }
+
         #endregion
 
         #region CopyFault

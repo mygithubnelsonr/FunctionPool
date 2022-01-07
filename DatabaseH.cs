@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Data;
-using System.Data.Common;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 
@@ -36,7 +35,7 @@ namespace NRSoft.FunctionPool
         public int DatabaseType
         {
             get { return _dbType; }
-            set { _dbType = value;  }
+            set { _dbType = value; }
         }
         public bool ConnectionEstablished
         {
@@ -99,7 +98,7 @@ namespace NRSoft.FunctionPool
 
         public string QueryBuilder(string tableName)
         {
-            string lg = "", lk = "", strAnd, strQuery, strTemp, strResult, strGenre, strKatalog, strAlbum, strInterpret;
+            string lg = "", lk = "", strAnd, strQuery, strTemp, strResult, strGenre, strCatalog, strAlbum, strArtist;
 
             Hashtable ht = new Hashtable();
             RegistryH rh = new RegistryH("NRSoft", "MyJukebox.net");
@@ -113,12 +112,12 @@ namespace NRSoft.FunctionPool
                 strGenre = " genre LIKE '" + lg + "'";
             }
             //  (letzter)selectierter katalog
-            lk = rh.GetSetting(@"Settings\Logical\Genre\" + lg, "LastKatalog", "Alle");
-            strKatalog = "";
+            lk = rh.GetSetting(@"Settings\Logical\Genre\" + lg, "LastCatalog", "Alle");
+            strCatalog = "";
             if (lk != "Alle")
             {
                 ht.Add("katalog", lk);
-                strKatalog = " katalog LIKE '" + lk + "'";
+                strCatalog = " katalog LIKE '" + lk + "'";
             }
 
             string ls = rh.GetSetting(@"Settings\Logical\Katalog\" + lk, "LastSelect", "Album");
@@ -134,15 +133,15 @@ namespace NRSoft.FunctionPool
                 }
             }
 
-            if (ls == "Interpret")
+            if (ls == "Artist")
             {
                 //  selectierter interpret
-                strResult = rh.GetSetting(@"Settings\Logical\Katalog\" + lk, "LastInterpret", "Alle");
-                strInterpret = "";
+                strResult = rh.GetSetting(@"Settings\Logical\Katalog\" + lk, "LastArtist", "Alle");
+                strArtist = "";
                 if (strResult != "Alle")
                 {
-                    ht.Add("interpret", strResult);
-                    strInterpret = " interpret LIKE '" + strResult.Replace("'", "''") + "'";
+                    ht.Add("artist", strResult);
+                    strArtist = " artist LIKE '" + strResult.Replace("'", "''") + "'";
                 }
             }
 
@@ -217,7 +216,7 @@ namespace NRSoft.FunctionPool
         public ArrayList ReadData(string SQL)
         {
             SqlConnection conn;
-            using ( conn = SQLConnection())
+            using (conn = SQLConnection())
             {
                 SqlCommand cmd = new SqlCommand(SQL, conn);
                 try
