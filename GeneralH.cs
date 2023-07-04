@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 
@@ -36,6 +37,21 @@ namespace NRSoft.FunctionPool
         #endregion Fields
 
         #region Methodes
+
+
+        public string HashPassword(string password)
+        {
+            SHA256 hash = SHA256.Create();
+
+            var passwdBytes = Encoding.Default.GetBytes(password);
+
+            var hashedPassword = hash.ComputeHash(passwdBytes);
+
+            return Convert.ToBase64String(hashedPassword);
+
+        }
+
+
         public string Encrypt()
         {
             if (_EncryptPw == String.Empty)
